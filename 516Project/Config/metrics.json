@@ -1,0 +1,11 @@
+﻿{
+  "AppMetrics": {
+    "Influxdb": {
+      "Enable": true,
+      "Address": "http://localhost:8086",
+      "Database": "AppMetrics",
+      "UserName": "root",
+      "Password": "influxdb"
+    }
+  }
+}

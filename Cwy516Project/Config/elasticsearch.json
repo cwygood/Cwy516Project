@@ -1,0 +1,5 @@
+﻿{
+  "ElasticSearch": {
+    "Urls": [ "http://localhost:9200" ]
+  }
+}

@@ -1,0 +1,9 @@
+﻿{
+  "Consul": {
+    "ServiceName": "TestServiceA",
+    "ServiceHost": "10.81.3.167",
+    "HealthCheck": "api/Home/HealthCheck",
+    "ConsulAddress": "http://192.168.152.200:8500"  //nginx转发地址
+    //"ConsulAddress": "http://192.168.152.200:8500"
+  }
+}

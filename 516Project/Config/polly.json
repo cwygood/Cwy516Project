@@ -1,0 +1,9 @@
+{
+  "Polly": {
+    "TimeoutTime": 20,
+    "RetryCount": 3,
+    "CircuitBreakerOpenFallCount": 3,
+    "CircuitBreakerDownTime": 5,
+    "ResponseMessage": "ÏµÍ³·±Ã¦"
+  }
+}

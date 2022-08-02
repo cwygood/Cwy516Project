@@ -1,0 +1,88 @@
+# 必须是字符串
+version: '3.8'
+
+services: 
+    cwy516project: 
+        image: cwy516project:v1
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        ports: 
+            - "5100:80"
+        depends_on: 
+            - consul1
+            - consul2
+            - consul3
+            - consul4
+            - nginx
+            - redis
+    consul1: 
+        image: consul:latest
+        container_name: consul1
+        restart: always
+        ports: 
+            - "8500:8500"
+            - "53"
+        hostname: "consul-server1"
+        command: agent -server -ui -bootstrap-expect=3 -node=consul-server1 -disable-host-node-id -client=0.0.0.0 -bind=0.0.0.0 -datacenter=dc1
+        volumes: 
+            - ./Configs/data/consul/consul1:/consul/data
+    consul2: 
+        image: consul:latest
+        container_name: consul2
+        restart: always
+        ports: 
+            - "9500:8500"
+            - "53"
+        hostname: "consul-server2"
+        command: agent -server -ui -bootstrap-expect=3 -node=consul-server2 -disable-host-node-id -client=0.0.0.0 -bind=0.0.0.0 -datacenter=dc1 -retry-join=consul-server1
+        volumes: 
+            - ./Configs/data/consul/consul2:/consul/data
+        depends_on: 
+            - consul1
+    consul3: 
+        image: consul:latest
+        container_name: consul3
+        restart: always
+        ports: 
+            - "10500:8500"
+            - "53"
+        hostname: "consul-server3"
+        command: agent -server -ui -bootstrap-expect=3 -node=consul-server3 -disable-host-node-id -client=0.0.0.0 -bind=0.0.0.0 -datacenter=dc1 -retry-join=consul-server1
+        volumes: 
+            - ./Configs/data/consul/consul3:/consul/data
+        depends_on: 
+            - consul1
+    consul4: 
+        image: consul:latest
+        container_name: consul4
+        restart: always
+        ports: 
+            - "11500:8500"
+            - "53"
+        hostname: "consul-client"
+        command: agent -ui -node=consul-client -client=0.0.0.0 -bind=0.0.0.0 -disable-host-node-id -datacenter=dc1 -retry-join=consul-server1
+        volumes: 
+            - ./Configs/data/consul/consul4:/consul/data
+        depends_on: 
+            - consul1
+    nginx: 
+        image: 192.168.152.201/my/nginx:v1
+        container_name: nginx
+        restart: always
+        ports: 
+            - "8090:8090"
+        volumes: 
+            - ./Configs/nginx.conf:/etc/nginx/nginx.conf
+    redis: 
+        image: 192.168.152.201/my/redis:v1
+        container_name: redis
+        restart: always
+        ports: 
+            - "6379:6379"
+        command: redis-server /etc/redis/redis.conf
+        volumes: 
+            - ./Configs/redis.conf:/etc/redis/redis.conf
+            - ./Configs/data/redis:/data
+
+

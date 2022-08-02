@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cwy516Project</name>
+    </assembly>
+    <members>
+        <member name="M:Cwy516Project.Controllers.HomeController.Get">
+            <summary>
+            服务调用
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.ConsulRequest(Application.Commands.HomeCommands.ConsulRequestCommand)">
+            <summary>
+            consul验证请求转发
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.HealthCheck">
+            <summary>
+            consul健康检查
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.GetAllUser(Application.Commands.HomeCommands.GetAllUserRequestCommand)">
+            <summary>
+            查询所有用户
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.GetUserById(Application.Commands.HomeCommands.GetUserRequestCommand)">
+            <summary>
+            查询单个用户
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.AddUser(Application.Commands.HomeCommands.AddUserRequestCommand)">
+            <summary>
+            新增用户
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.GetToken">
+            <summary>
+            获取Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.CreateValidateCode">
+            <summary>
+            获取验证码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cwy516Project.Controllers.HomeController.Login(Application.Commands.HomeCommands.LoginRequestCommand)">
+            <summary>
+            登录
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

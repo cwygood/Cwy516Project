@@ -1,0 +1,12 @@
+﻿{
+  "Tracing": {
+    "Enable": true,
+    "SerivceName": "ZT.WCS.Cloud.API-DEV",
+    "FlushIntervalSeconds": 15,
+    "SamplerType": "const",
+    "LogSpans": true,
+    "AgentPort": "5775", //代理端口
+    "AgentHost": "192.168.109.166", //代理地址
+    "EndPoint": "http://dev.jaeger-collector.service.consul:14268/api/traces"
+  }
+}

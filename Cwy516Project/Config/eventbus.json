@@ -1,0 +1,5 @@
+﻿{
+  "EventBus": {
+    "EventBusTableName": "T_BD_EVENTBUS"
+  }
+}

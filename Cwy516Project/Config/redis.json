@@ -1,0 +1,88 @@
+{
+  "Redis": {
+    "RedisType": 0,
+    "HostConfig": {
+      "Host": "192.168.152.200",
+      "Port": 6379,
+      "Password": "123456",
+      "DbIndex": 5
+    },
+    "MasterSlaves": {
+      "Master": {
+        "Host": "127.0.0.1",
+        "Port": 8051,
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      "Slaves": [
+        {
+          "Host": "127.0.0.1",
+          "Port": 8052,
+          "Password": "123456",
+          "DbIndex": 0
+        },
+        {
+          "Host": "127.0.0.1",
+          "Port": 8053,
+          "Password": "123456",
+          "DbIndex": 0
+        }
+      ]
+    },
+    "SentinelPoints": [
+      {
+        "Host": "127.0.0.1",
+        "Port": 18051,
+        "MasterName": "mymaster"
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": 18052,
+        "MasterName": "mymaster"
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": 18053,
+        "MasterName": "mymaster"
+      }
+    ],
+    "ClusterPoints": [
+      {
+        "Host": "127.0.0.1",
+        "Port": "7001",
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": "7002",
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": "7003",
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": "7004",
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": "7005",
+        "Password": "123456",
+        "DbIndex": 0
+      },
+      {
+        "Host": "127.0.0.1",
+        "Port": "7006",
+        "Password": "123456",
+        "DbIndex": 0
+      }
+    ]
+  }
+}

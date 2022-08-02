@@ -1,0 +1,8 @@
+{
+  "Jwt": {
+    "Issuer": "Issuer",
+    "Audience": "Audience",
+    "SigningKey": "977c6394-c8cd-11eb-a92a-70b5e842dcfd",
+    "Expires": 30
+  }
+}

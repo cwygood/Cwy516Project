@@ -1,0 +1,71 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Home/OcelotA",//下游服务实例
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/OcelotA",//上游客户端
+      "UpstreamHttpMethod": [ "Get" ],
+      "ServiceName": "TestServiceA",//consul服务名称
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 1, //缓存过期时间
+        "Region": "Cwy516Project" //缓存区名称
+      },
+      "RateLimitOptions": {
+        "ClientWhiteList": [ "SuperClient" ], //客户端白名单，白名单中不受限流控制
+        "EnableRateLimiting": true, //是否启用限流
+        "Period": "5s", //限流的单位时间
+        "PeriodTimespan": 1, //客户端达到请求上限多少秒后可以重试
+        "Limit": 2 //客户端在定义的时间内可以发出的最多请求次数
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,//发生错误的次数，超过该次数就熔断
+        "DurationOfBreak": 10000,//熔断的时间
+        "TimeoutValue": 5000//超时时间
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Home/OcelotB",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/OcelotB",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ServiceName": "TestServiceB",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 5,
+        "Region": "Cwy516Prject"
+      },
+      "RateLimitOptions": {
+        "ClientWhiteList": [ "SuperClient" ], //客户端白名单，白名单中不受限流控制
+        "EnableRateLimiting": true, //是否启用限流
+        "Period": "5s", //限流的单位时间
+        "PeriodTimespan": 1, //客户端达到请求上限多少秒后可以重试
+        "Limit": 2 //客户端在定义的时间内可以发出的最多请求次数
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3, //发生错误的次数，超过该次数就熔断
+        "DurationOfBreak": 10000, //熔断的时间
+        "TimeoutValue": 5000 //超时时间
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://10.81.3.167:5100", //ocelot网关运行的地址
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "192.168.152.200",
+      "Port": 8090,
+      "Type": "Consul" //nginx 转发
+    },
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false, //否禁用X-Rate-Limit和Retry-After标头（请求达到上限时response header中的限制数和多少秒后能重试）
+      "QuotaExceededMessage": "Too Many Request", //请求达到上限返回给客户端的信息
+      "HttpStatusCode": "999", //请求达到上限返回给客户端的状态码
+      "ClientIdHead": "MyClientId" //自定义标识客户端的标头
+    }
+  }
+}

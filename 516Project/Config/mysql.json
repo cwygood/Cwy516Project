@@ -1,0 +1,7 @@
+{
+  "Database": {
+    //"WCS_ConnectionString": "Server=192.168.109.114;Port=63307;Database=wcs_cloud_test; User=wcs_test;Password=bQunucBgZkC0pAle;pooling=True;minpoolsize=1;maxpoolsize=100;connectiontimeout=180",
+    //"WCS_ConnectionString": "Server=192.168.109.237;Port=63307;Database=wcs_cloud_dev; User=gc_wcs_dev;Password=ut16VU4oHCzWhd39;pooling=True;minpoolsize=1;maxpoolsize=100;connectiontimeout=180"
+    "ConnectionString": "Server=127.0.0.1;Port=3306;Database=my516db; User=root;Password=123456;pooling=True;minpoolsize=1;maxpoolsize=100;connectiontimeout=180"
+  }
+}

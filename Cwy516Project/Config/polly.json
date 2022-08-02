@@ -1,0 +1,10 @@
+{
+  "Polly": {
+    "PollyName": "Polly",
+    "TimeoutTime": 20,
+    "RetryCount": 2,
+    "CircuitBreakerOpenFallCount": 2,
+    "CircuitBreakerDownTime": 5,
+    "ResponseMessage": "ÏµÍ³·±Ã¦"
+  }
+}

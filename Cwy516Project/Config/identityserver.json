@@ -1,0 +1,38 @@
+﻿{
+  "UseIdentity": true,
+  "IdentityServer": {
+    "ApiScopes": [
+      {
+        "Name": "scope1",
+        "DisplayName": "scope1",
+        "UserClaims": []
+      }
+    ],
+    "ApiResources": [
+      {
+        "Name": "api1",
+        "DisplayName": "api1",
+        "UserClaims": []
+      }
+    ],
+    "Clients": [
+      {
+        "ClientId": "client",
+        "ClientSecrets": [
+          {
+            "Value":"secret" 
+          }
+        ],
+        "AllowedGrantTypes": [ "password", "client_credentials" ],
+        "AllowedScopes": [ "scope1" ]
+      }
+    ],
+    "Users": [
+      {
+        "SubjectId": "1",
+        "UserName": "cwy",
+        "Password": "123456"
+      }
+    ]
+  }
+}

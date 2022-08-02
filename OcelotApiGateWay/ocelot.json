@@ -1,0 +1,49 @@
+﻿{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5200"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Home/OcelotA",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1234
+        },
+        {
+          "Host": "localhost",
+          "Port": 1236
+        },
+        {
+          "Host": "localhost",
+          "Port": 1237
+        }
+      ],
+      "UpstreamPathTemplate": "/OcelotA",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Home/OcelotB",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1235
+        }
+      ],
+      "UpstreamPathTemplate": "/OcelotB",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //负载均衡，轮询机制 LeastConnection/RoundRobin/NoLoadBalancer/CookieStickySessions
+      }
+    }
+  ]
+}
